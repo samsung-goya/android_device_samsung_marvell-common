@@ -14,15 +14,15 @@
 
 
 # Media config
-PRODUCT_PACKAGES += media_codecs.xml
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    $(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    make_ext4fs \
-    e2fsck \
     setup_fs
 
 # Charger
-PRODUCT_PACKAGES += charger charger_res_images
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_PACKAGES += charger_res_images
