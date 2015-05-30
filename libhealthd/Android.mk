@@ -1,4 +1,5 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2013 The Android Open Source Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,17 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_PATH := $(call my-dir)
 
-# Media config
-PRODUCT_PACKAGES += media_codecs.xml
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := healthd_board_mrvl.cpp
+LOCAL_MODULE := libhealthd.mrvl
+LOCAL_C_INCLUDES := system/core/healthd
+include $(BUILD_STATIC_LIBRARY)
 
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    e2fsck \
-    setup_fs
-
-# Charger
-PRODUCT_PACKAGES += charger charger_res_images
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
