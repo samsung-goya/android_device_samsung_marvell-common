@@ -13,15 +13,6 @@
 # limitations under the License.
 
 
-# Media config
-PRODUCT_PACKAGES += media_codecs.xml
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    e2fsck \
-    setup_fs
-
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 

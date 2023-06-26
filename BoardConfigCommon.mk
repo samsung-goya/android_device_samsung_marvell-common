@@ -14,17 +14,24 @@
 
 BOARD_VENDOR := samsung
 
-# Bootloader
-TARGET_NO_BOOTLOADER := true
-
-# Architecture
+# Board
 TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a9
+TARGET_BOARD_PLATFORM := mrvl
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-# Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
+# MRVL hardware
+BOARD_USES_MRVL_HARDWARE := true
+MRVL_ION := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -40,6 +47,3 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_BATTERY_DEVICE_NAME := "battery"
 
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
-
-# Override healthd HAL
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.mrvl
